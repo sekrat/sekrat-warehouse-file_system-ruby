@@ -1,6 +1,6 @@
 module Sekrat
   module Warehouse
-    module FileSystem
+    class FileSystem
       VERSION = "0.1.0"
     end
   end
