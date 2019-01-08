@@ -16,7 +16,7 @@ module Sekrat
 
       def ids
         Dir["#{basedir}/**/*"].
-          select {|path| FileTest.file?(path)}.
+          select {|path| File.file?(path)}.
           map {|path| path.gsub(/^#{Regexp.escape(basedir)}\//, '')}
       end
 
@@ -32,7 +32,7 @@ module Sekrat
         end
       end
 
-      def retrieve
+      def retrieve(id)
         file = filename(id)
         raise Sekrat::NotFound.new("'#{id}'") unless File.exist?(file)
 
