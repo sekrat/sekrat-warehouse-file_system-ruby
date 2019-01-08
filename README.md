@@ -22,7 +22,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use this Warehouse with a Sekrat::Manager, you do something like this:
+
+```ruby
+require 'sekrat'
+require 'sekrat/warehouse/file_system'
+
+base_directory = "/var/lib/secrets"
+
+confidant = Sekrat.manager(
+  warehouse: Sekrat::Warehouse::Filesystem.new(basedir: base_directory)
+)
+```
+
+Now, when you `confidant.put` secrets, they will be saved to the filesystem under the `/var/lib/secrets` directory, and the data within will be encoded as base64 (to get around string/file encoding issues that arose in initial development).
 
 ## Development
 
@@ -32,7 +45,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/sekrat-warehouse-file_system. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sekrat/sekrat-warehouse-file_system-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +53,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Sekrat::Warehouse::FileSystem project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/sekrat-warehouse-file_system/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Sekrat::Warehouse::FileSystem project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/sekrat/sekrat-warehouse-file_system-ruby/blob/master/CODE_OF_CONDUCT.md).
